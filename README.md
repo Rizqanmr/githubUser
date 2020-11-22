@@ -1,6 +1,9 @@
 # Deskripsi
 Aplikasi ini merupakan syarat untuk menyelesaikan submission 2 kelas BFAA dari Dicoding Indonesia. 
 
+# Screenshots
+![screenshot] = ss-GuthubUser.png
+
 # Fitur
 - Splash Screen
 - Custom Click Listener
