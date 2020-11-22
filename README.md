@@ -2,10 +2,10 @@
 Aplikasi ini merupakan syarat untuk menyelesaikan submission 1 kelas BFAA dari Dicoding Indonesia. 
 
 # Fitur
-~ Splash Screen
-~ Custom Click Listener
-~ Intent with Parcelable
-~ RecyclerView (Data static)
+- Splash Screen
+- Custom Click Listener
+- Intent with Parcelable
+- RecyclerView (Data static)
 
  # Notes
 Cek branch githubUser2 untuk melihat perkembangan fitur
