@@ -1,4 +1,4 @@
-package com.rizqanmr.githubuser.activity
+package com.rizqanmr.githubuser.view
 
 import android.app.Activity
 import android.content.Intent
@@ -7,7 +7,7 @@ import android.os.Handler
 import com.rizqanmr.githubuser.R
 
 class SplashScreen : Activity() {
-    lateinit var handler: Handler
+    private lateinit var handler: Handler
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
@@ -17,6 +17,6 @@ class SplashScreen : Activity() {
             val toMain = Intent(this@SplashScreen, MainActivity::class.java)
             startActivity(toMain)
             finish()
-        }, 5000)
+        }, 3000)
     }
 }

@@ -4,71 +4,60 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.DetailActivity">
+    tools:context=".view.DetailActivity"
+    android:background="@color/colorPrimary">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/toolbar"
         android:background="@color/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        android:popupTheme="@style/ThemeOverlay.AppCompat.Dark">
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
+        android:popupTheme="@style/ThemeOverlay.MaterialComponents.Dark">
     </androidx.appcompat.widget.Toolbar>
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:id="@+id/iv_avatar_detail"
-        app:civ_border_color="#FF909090"
-        app:civ_border_width="2dp"
-        android:src="@drawable/user1"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/toolbar"
-        android:layout_marginTop="50dp"/>
-
-    <TextView
-        android:id="@+id/tv_name_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="@string/nama_user"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/iv_avatar_detail"
-        android:layout_marginTop="30dp"/>
-
-    <TextView
-        android:id="@+id/tv_username_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="@string/username"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/tv_name_detail"
-        android:layout_marginTop="5dp"/>
-
     <RelativeLayout
-        android:id="@+id/r_layout1"
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginHorizontal="50dp"
-        android:paddingVertical="10dp"
-        android:paddingHorizontal="25dp"
-        android:layout_below="@id/tv_username_detail"
-        android:background="@drawable/bg_yellow_rounded"
-        android:gravity="center">
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="80dp"
+        android:background="@drawable/bg_white_rounded"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/tvNameDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvUsernameDetail"
+            android:textSize="18sp"
+            android:text="@string/name"
+            android:layout_marginStart="60dp"/>
+
+        <TextView
+            android:id="@+id/tvUsernameDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/username"
+            android:layout_marginStart="60dp"/>
 
         <ImageView
             android:id="@+id/ic_company"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_company_24" />
+            android:layout_below="@id/tvNameDetail"
+            android:layout_marginStart="60dp"
+            android:src="@drawable/ic_baseline_company_24"
+            android:contentDescription="@string/company"/>
         <TextView
+            android:id="@+id/tvCompanyDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/tvNameDetail"
             android:layout_marginStart="5dp"
-            android:id="@+id/tv_company_detail"
             android:layout_toEndOf="@id/ic_company"
             android:textSize="18sp"
             android:text="@string/company"/>
@@ -77,113 +66,126 @@
             android:id="@+id/ic_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
             android:src="@drawable/ic_baseline_location_on_24"
-            android:layout_below="@+id/tv_company_detail"/>
+            android:layout_below="@+id/tvCompanyDetail"
+            android:contentDescription="@string/location"/>
         <TextView
+            android:id="@+id/tvLocationDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:id="@+id/tv_location_detail"
             android:layout_alignBottom="@id/ic_location"
             android:layout_toEndOf="@id/ic_location"
-            android:layout_below="@id/tv_company_detail"
+            android:layout_below="@id/tvCompanyDetail"
             android:textSize="18sp"
             android:text="@string/location"/>
 
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/linear_layout2"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="5dp"
-        android:padding="10dp"
-        android:layout_below="@id/r_layout1"
-        android:background="@drawable/bg_blue_rounded"
-        android:gravity="center_horizontal">
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_repository_24"/>
-    <TextView
-        android:id="@+id/tv_repository_detail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:text="@string/value_repository"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:textSize="18sp"
-        android:text="@string/repositories"/>
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/r_layout3"
-        android:layout_marginHorizontal="50dp"
-        android:padding="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_below="@id/linear_layout2"
-        android:background="@drawable/bg_orange_rounded"
-        android:gravity="center_horizontal|center_vertical">
-
         <ImageView
-            android:id="@+id/ic_followers"
+            android:id="@+id/ic_repo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_baseline_followers_24"/>
+            android:layout_below="@id/ic_location"
+            android:layout_marginStart="60dp"
+            android:src="@drawable/ic_baseline_repository_24"
+            android:contentDescription="@string/repositories"/>
         <TextView
-            android:id="@+id/tv_followers_detail"
+            android:id="@+id/tvRepositoryDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/ic_location"
+            android:layout_toEndOf="@id/ic_repo"
             android:layout_marginStart="5dp"
-            android:textAlignment="center"
-            android:layout_toEndOf="@id/ic_followers"
             android:textSize="18sp"
             android:textStyle="bold"
             android:text="@string/value_repository"/>
         <TextView
-            android:id="@+id/followers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ic_location"
+            android:layout_toEndOf="@id/tvRepositoryDetail"
+            android:layout_marginStart="5dp"
+            android:textSize="18sp"
+            android:text="@string/repositories"/>
+
+        <TextView
+            android:id="@+id/tvFollowersDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_toEndOf="@id/tv_followers_detail"
+            android:textAlignment="center"
+            android:layout_below="@id/followers"
+            android:layout_alignStart="@id/followers"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="@string/value_repository"/>
+
+        <TextView
+            android:id="@+id/followers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/ic_repo"
             android:textSize="18sp"
             android:text="@string/followers"/>
 
         <TextView
-            android:id="@+id/tv_following_detail"
+            android:id="@+id/following"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/followers"
+            android:layout_alignBaseline="@id/followers"
+            android:layout_marginStart="30dp"
+            android:textSize="18sp"
+            android:text="@string/following"/>
+
+        <TextView
+            android:id="@+id/tvFollowingDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_below="@id/tv_followers_detail"
-            android:layout_alignEnd="@id/tv_followers_detail"
-            android:layout_toEndOf="@id/ic_followers"
+            android:layout_alignStart="@id/following"
+            android:layout_alignBaseline="@id/tvFollowersDetail"
             android:textAlignment="center"
             android:textSize="18sp"
             android:textStyle="bold"
             android:text="@string/value"/>
-        <TextView
-            android:id="@+id/following"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_followers_detail"
-            android:layout_alignStart="@id/followers"
-            android:textSize="18sp"
-            android:text="@string/following"/>
 
     </RelativeLayout>
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivAvatarDetail"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="20dp"
+        app:civ_border_color="#FF909090"
+        app:civ_border_width="2dp"
+        android:src="@drawable/user1"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/user_profile_picture"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/relativeLayout"
+        android:background="@color/colorPrimary"
+        android:minHeight="?actionBarSize"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="2dp"
+        app:tabMode="scrollable"
+        app:tabRippleColor="@null"
+        app:tabTextColor="#fff" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tabs"
+        android:background="#fff"/>
 
 </RelativeLayout>

@@ -4,24 +4,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".activity.MainActivity">
+    android:background="#A2E8E3E3"
+    tools:context=".view.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/toolbar"
         android:background="@color/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        android:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
-        app:title="@string/app_name">
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
+        android:popupTheme="@style/ThemeOverlay.MaterialComponents.Dark">
     </androidx.appcompat.widget.Toolbar>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:background="#fff"
+        android:textCursorDrawable="@null"
+        app:divider="@color/colorPrimary"
+        app:iconifiedByDefault="false"
+        app:queryBackground="@null"
+        app:queryHint="@string/find_username"
+        app:showDividers="end"
+        android:focusable="false"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/CustomProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_user"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/search_user"
         android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_below="@id/toolbar" />
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="1dp" />
 
 </RelativeLayout>

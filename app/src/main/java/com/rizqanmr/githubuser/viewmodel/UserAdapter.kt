@@ -1,10 +1,12 @@
-package com.rizqanmr.githubuser.adapter
+package com.rizqanmr.githubuser.viewmodel
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.rizqanmr.githubuser.R
 import com.rizqanmr.githubuser.model.User
 import de.hdodenhof.circleimageview.CircleImageView
@@ -30,18 +32,14 @@ class UserAdapter (private val listUser: ArrayList<User>?):
         return listUser?.size ?: 0
     }
 
-    fun getItem(position: Int): String? {
-        return listUser?.get(position)?.toString()
-    }
-
     fun setOnItemClickListener(clickListener: ClickListener) {
         this.clickListener = clickListener
     }
 
     inner class UserViewHolder (v: View) : RecyclerView.ViewHolder(v), View.OnClickListener{
         private val ivAvatar: CircleImageView = v.findViewById(R.id.iv_avatar)
-        private val tvName: TextView = v.findViewById(R.id.tv_name)
-        private val tvUsername: TextView = v.findViewById(R.id.tv_username)
+        private val tvName: TextView = v.findViewById(R.id.name)
+        private val tvUsername: TextView = v.findViewById(R.id.username)
 
         init {
             if (clickListener != null) {
@@ -52,7 +50,9 @@ class UserAdapter (private val listUser: ArrayList<User>?):
         fun bind(user: User){
             tvName.text = user.name
             tvUsername.text = user.username
-            ivAvatar.setImageResource(user.avatar)
+            Glide.with(itemView.context).load(user.avatar)
+                .apply(RequestOptions().override(250,250))
+                .into(ivAvatar)
         }
 
         override fun onClick(v: View?) {
