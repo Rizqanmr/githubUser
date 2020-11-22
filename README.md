@@ -2,7 +2,7 @@
 Aplikasi ini merupakan syarat untuk menyelesaikan submission 2 kelas BFAA dari Dicoding Indonesia. 
 
 # Screenshots
-<img src="https://raw.github.com/Rizqanmr/githubUser/blob/dev-githubUser2/ss-GithubUser2.png" width="500" height="480"/>
+<img src="https://github.com/Rizqanmr/githubUser/blob/dev-githubUser2/ss-GithubUser2.png" width="800" height="480"/>
 
 # Fitur
 - Splash Screen
