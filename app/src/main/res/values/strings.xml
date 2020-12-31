@@ -22,4 +22,10 @@
     <string name="on_airplane_mode_msg">You have turned on the airplane mode!</string>
     <string name="settings">Settings</string>
     <string name="ok">OK</string>
+    <string name="toast_no_internet">No Internet Connection. Please try again</string>
+    <string name="daily_reminder">Set Daily Reminder</string>
+    <string name="added_favorite">Added to favorite list</string>
+    <string name="deleted_favorite">Deleted from favorite list</string>
+    <string name="favorite">Favorite</string>
+    <string name="daily_message">Let`s find favorite user on Github</string>
 </resources>

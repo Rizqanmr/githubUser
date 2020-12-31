@@ -12,8 +12,7 @@
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/toolbar"
         android:background="@color/colorPrimary"
-        android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
-        android:popupTheme="@style/ThemeOverlay.MaterialComponents.Dark">
+        android:theme="@style/CustomToolbar">
     </androidx.appcompat.widget.Toolbar>
 
     <RelativeLayout
@@ -30,8 +29,8 @@
             android:id="@+id/tvNameDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvUsernameDetail"
-            android:textSize="18sp"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:text="@string/name"
             android:layout_marginStart="60dp"/>
 
@@ -39,8 +38,8 @@
             android:id="@+id/tvUsernameDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:layout_below="@id/tvNameDetail"
+            android:textSize="18sp"
             android:text="@string/username"
             android:layout_marginStart="60dp"/>
 
@@ -48,7 +47,7 @@
             android:id="@+id/ic_company"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvNameDetail"
+            android:layout_below="@id/tvUsernameDetail"
             android:layout_marginStart="60dp"
             android:src="@drawable/ic_baseline_company_24"
             android:contentDescription="@string/company"/>
@@ -56,7 +55,7 @@
             android:id="@+id/tvCompanyDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvNameDetail"
+            android:layout_below="@id/tvUsernameDetail"
             android:layout_marginStart="5dp"
             android:layout_toEndOf="@id/ic_company"
             android:textSize="18sp"
@@ -175,11 +174,15 @@
         android:layout_below="@id/relativeLayout"
         android:background="@color/colorPrimary"
         android:minHeight="?actionBarSize"
-        app:tabIndicatorFullWidth="false"
+        app:tabMaxWidth="0dp"
+        app:tabTextColor="#7C7C7C"
+        app:tabSelectedTextColor="@color/white"
+        app:tabIndicatorColor="@color/white"
         app:tabIndicatorHeight="2dp"
-        app:tabMode="scrollable"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
         app:tabRippleColor="@null"
-        app:tabTextColor="#fff" />
+        />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
@@ -187,5 +190,16 @@
         android:layout_height="match_parent"
         android:layout_below="@id/tabs"
         android:background="#fff"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_twotone_favorite_24"
+        app:backgroundTint="@android:color/white"
+        app:borderWidth="0dp"/>
 
 </RelativeLayout>

@@ -12,7 +12,7 @@ import com.rizqanmr.githubuser.model.User
 import de.hdodenhof.circleimageview.CircleImageView
 
 
-class UserAdapter (private val listUser: ArrayList<User>?):
+class UserAdapter (var listUser: ArrayList<User>?):
     RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     private var clickListener: ClickListener? = null

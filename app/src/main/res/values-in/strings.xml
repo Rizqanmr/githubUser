@@ -23,4 +23,10 @@
     <string name="on_airplane_mode_msg">Mode pesawat aktif coy!</string>
     <string name="settings">Pengaturan</string>
     <string name="ok">OK</string>
+    <string name="toast_no_internet">Tidak ada koneksi internet. Mohon coba lagi</string>
+    <string name="daily_reminder">Atur Pengingat Harian</string>
+    <string name="added_favorite">Menambahkan ke daftar favorit</string>
+    <string name="deleted_favorite">Menghapus dari daftar favorit</string>
+    <string name="favorite">Favorit</string>
+    <string name="daily_message">Kuy cari pengguna favorit di Github</string>
 </resources>

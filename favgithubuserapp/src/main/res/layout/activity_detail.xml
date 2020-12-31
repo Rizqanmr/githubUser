@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.DetailActivity"
+    android:background="@color/colorPrimary">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        android:theme="@style/CustomToolbar">
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="80dp"
+        android:background="@drawable/bg_white_rounded"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/tvNameDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/name"
+            android:layout_marginStart="60dp"/>
+
+        <TextView
+            android:id="@+id/tvUsernameDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvNameDetail"
+            android:textSize="18sp"
+            android:text="@string/username"
+            android:layout_marginStart="60dp"/>
+
+        <ImageView
+            android:id="@+id/ic_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvUsernameDetail"
+            android:layout_marginStart="60dp"
+            android:src="@drawable/ic_baseline_company_24"
+            android:contentDescription="@string/company"/>
+        <TextView
+            android:id="@+id/tvCompanyDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvUsernameDetail"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/ic_company"
+            android:textSize="18sp"
+            android:text="@string/company"/>
+
+        <ImageView
+            android:id="@+id/ic_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:src="@drawable/ic_baseline_location_on_24"
+            android:layout_below="@+id/tvCompanyDetail"
+            android:contentDescription="@string/location"/>
+        <TextView
+            android:id="@+id/tvLocationDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_alignBottom="@id/ic_location"
+            android:layout_toEndOf="@id/ic_location"
+            android:layout_below="@id/tvCompanyDetail"
+            android:textSize="18sp"
+            android:text="@string/location"/>
+
+        <ImageView
+            android:id="@+id/ic_repo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ic_location"
+            android:layout_marginStart="60dp"
+            android:src="@drawable/ic_baseline_repository_24"
+            android:contentDescription="@string/repositories"/>
+        <TextView
+            android:id="@+id/tvRepositoryDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ic_location"
+            android:layout_toEndOf="@id/ic_repo"
+            android:layout_marginStart="5dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="@string/value_repository"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ic_location"
+            android:layout_toEndOf="@id/tvRepositoryDetail"
+            android:layout_marginStart="5dp"
+            android:textSize="18sp"
+            android:text="@string/repositories"/>
+
+        <TextView
+            android:id="@+id/tvFollowersDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textAlignment="center"
+            android:layout_below="@id/followers"
+            android:layout_alignStart="@id/followers"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="@string/value_repository"/>
+
+        <TextView
+            android:id="@+id/followers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/ic_repo"
+            android:textSize="18sp"
+            android:text="@string/followers"/>
+
+        <TextView
+            android:id="@+id/following"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/followers"
+            android:layout_alignBaseline="@id/followers"
+            android:layout_marginStart="30dp"
+            android:textSize="18sp"
+            android:text="@string/following"/>
+
+        <TextView
+            android:id="@+id/tvFollowingDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_alignStart="@id/following"
+            android:layout_alignBaseline="@id/tvFollowersDetail"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="@string/value"/>
+
+    </RelativeLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivAvatarDetail"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="20dp"
+        app:civ_border_color="#FF909090"
+        app:civ_border_width="2dp"
+        android:src="@drawable/user1"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/user_profile_picture"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/relativeLayout"
+        android:background="@color/colorPrimary"
+        android:minHeight="?actionBarSize"
+        app:tabMaxWidth="0dp"
+        app:tabTextColor="#7C7C7C"
+        app:tabSelectedTextColor="@color/white"
+        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorHeight="2dp"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        app:tabRippleColor="@null"
+        />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tabs"
+        android:background="#fff"/>
+
+</RelativeLayout>

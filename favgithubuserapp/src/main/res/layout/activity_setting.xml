@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.SettingActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        android:theme="@style/CustomToolbar">
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/iconNotif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:src="@drawable/ic_baseline_notifications_24"
+        android:paddingStart="16dp"
+        android:paddingVertical="16dp"/>
+
+    <Switch
+        android:id="@+id/switchDaily"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:layout_toEndOf="@id/iconNotif"
+        android:padding="16dp"
+        android:text="@string/daily_reminder"
+        android:textSize="17sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/switchDaily"/>
+
+    <ImageView
+        android:id="@+id/iconLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view1"
+        android:src="@drawable/ic_baseline_g_translate_24"
+        android:paddingStart="16dp"
+        android:paddingVertical="16dp"/>
+
+    <TextView
+        android:id="@+id/changeLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view1"
+        android:layout_toEndOf="@id/iconLanguage"
+        android:padding="16dp"
+        android:textSize="17sp"
+        android:text="@string/change_language_settings"
+        android:textColor="@color/colorPrimary" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/changeLanguage"
+        android:background="@color/colorPrimary"/>
+
+</RelativeLayout>

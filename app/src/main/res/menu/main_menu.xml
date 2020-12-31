@@ -2,7 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_change_language"
-        android:title="@string/change_language_settings"
+        android:id="@+id/menu_favorite_user"
+        android:title="@string/favorite"
+        android:icon="@drawable/ic_favorite_24"
+        app:showAsAction="ifRoom|collapseActionView"/>
+    <item
+        android:id="@+id/menu_setting"
+        android:title="@string/settings"
         app:showAsAction="never"/>
 </menu>

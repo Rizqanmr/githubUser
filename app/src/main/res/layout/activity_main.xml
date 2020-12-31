@@ -12,8 +12,7 @@
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/toolbar"
         android:background="@color/colorPrimary"
-        android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
-        android:popupTheme="@style/ThemeOverlay.MaterialComponents.Dark">
+        android:theme="@style/CustomToolbar">
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.appcompat.widget.SearchView

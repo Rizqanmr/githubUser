@@ -1,23 +1,23 @@
 package com.rizqanmr.githubuser.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Settings
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import com.rizqanmr.githubuser.R
-import com.rizqanmr.githubuser.viewmodel.UserAdapter
 import com.rizqanmr.githubuser.model.User
+import com.rizqanmr.githubuser.viewmodel.UserAdapter
 import cz.msebera.android.httpclient.Header
+import cz.msebera.android.httpclient.client.params.ClientPNames
 import kotlinx.android.synthetic.main.activity_main.*
 import org.imaginativeworld.oopsnointernet.NoInternetSnackbar
 import org.json.JSONArray
@@ -48,8 +48,15 @@ class MainActivity : AppCompatActivity() {
                 )
             )
         }
-        getDataUser()
-        searchUser()
+        try {
+            getDataUser()
+            searchUser()
+        } catch (e: Throwable){
+            e.printStackTrace()
+            Toast.makeText(this@MainActivity, resources.getString(R.string.toast_no_internet),
+                Toast.LENGTH_SHORT)
+                .show()
+        }
     }
 
     private fun searchUser(){
@@ -70,12 +77,12 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun getDataSearchUser(name: String) {
+    private fun getDataSearchUser(username: String) {
         progressBar.visibility = View.VISIBLE
         val client = AsyncHttpClient()
-        client.addHeader("Authorization", "token c524e7659d6a14c15e053fcf152820ba019503de")
+        client.addHeader("Authorization", "token 4eb088281be97614c40f9494a3a4ee87107d82f5")
         client.addHeader("User-Agent", "request")
-        val url = "https://api.github.com/search/users?q=$name"
+        val url = "https://api.github.com/search/users?q=$username"
         client.get(url, object : AsyncHttpResponseHandler() {
             override fun onSuccess(
                 statusCode: Int,
@@ -93,9 +100,7 @@ class MainActivity : AppCompatActivity() {
                         val username: String = jsonObject.getString("login")
                         getDataUserDetail(username)
                     }
-                } catch (e: Exception) {
-                    Toast.makeText(this@MainActivity, e.message, Toast.LENGTH_SHORT)
-                        .show()
+                } catch (e: Throwable) {
                     e.printStackTrace()
                 }
             }
@@ -108,12 +113,12 @@ class MainActivity : AppCompatActivity() {
             ) {
                 progressBar.visibility = View.INVISIBLE
                 val errorMessage = when (statusCode) {
-                    401 -> "$statusCode : "+resources.getString(R.string.bad_request)
-                    403 -> "$statusCode : "+resources.getString(R.string.forbidden)
-                    404 -> "$statusCode : "+resources.getString(R.string.not_found)
+                    401 -> "$statusCode : " + resources.getString(R.string.bad_request)
+                    403 -> "$statusCode : " + resources.getString(R.string.forbidden)
+                    404 -> "$statusCode : " + resources.getString(R.string.not_found)
                     else -> "$statusCode : ${error.message + " GIT"}"
                 }
-                Toast.makeText(this@MainActivity, errorMessage, Toast.LENGTH_LONG)
+                Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_LONG)
                     .show()
             }
         })
@@ -122,14 +127,17 @@ class MainActivity : AppCompatActivity() {
     private fun getDataUser() {
         progressBar.visibility = View.VISIBLE
         val client = AsyncHttpClient()
-        client.addHeader("Authorization", "token c524e7659d6a14c15e053fcf152820ba019503de")
+        client.addHeader("Authorization", "token 4eb088281be97614c40f9494a3a4ee87107d82f5")
         client.addHeader("User-Agent", "request")
         val url = "https://api.github.com/users"
+        client.httpClient.params.setParameter(ClientPNames.ALLOW_CIRCULAR_REDIRECTS, true)
+        client.setTimeout(30000)
         client.get(url, object : AsyncHttpResponseHandler() {
             override fun onSuccess(
                 statusCode: Int,
                 headers: Array<Header>,
-                responseBody: ByteArray) {
+                responseBody: ByteArray
+            ) {
                 progressBar.visibility = View.INVISIBLE
                 val result = String(responseBody)
                 Log.d(TAG, result)
@@ -140,9 +148,7 @@ class MainActivity : AppCompatActivity() {
                         val username: String = jsonObject.getString("login")
                         getDataUserDetail(username)
                     }
-                } catch (e: Exception) {
-                    Toast.makeText(this@MainActivity, e.message, Toast.LENGTH_SHORT)
-                        .show()
+                } catch (e: Throwable) {
                     e.printStackTrace()
                 }
             }
@@ -155,21 +161,22 @@ class MainActivity : AppCompatActivity() {
             ) {
                 progressBar.visibility = View.INVISIBLE
                 val errorMessage = when (statusCode) {
-                    401 -> "$statusCode : "+resources.getString(R.string.bad_request)
-                    403 -> "$statusCode : "+resources.getString(R.string.forbidden)
-                    404 -> "$statusCode : "+resources.getString(R.string.not_found)
+                    401 -> "$statusCode : " + resources.getString(R.string.bad_request)
+                    403 -> "$statusCode : " + resources.getString(R.string.forbidden)
+                    404 -> "$statusCode : " + resources.getString(R.string.not_found)
                     else -> "$statusCode : ${error.message + " GIT"}"
                 }
-                Toast.makeText(this@MainActivity, errorMessage, Toast.LENGTH_LONG)
+                Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_LONG)
                     .show()
             }
         })
+
     }
 
     private fun getDataUserDetail(id: String) {
         progressBar.visibility = View.VISIBLE
         val client = AsyncHttpClient()
-        client.addHeader("Authorization", "token c524e7659d6a14c15e053fcf152820ba019503de")
+        client.addHeader("Authorization", "token 4eb088281be97614c40f9494a3a4ee87107d82f5")
         client.addHeader("User-Agent", "request")
         val url = "https://api.github.com/users/$id"
         client.get(url, object : AsyncHttpResponseHandler() {
@@ -183,30 +190,30 @@ class MainActivity : AppCompatActivity() {
                 Log.d(TAG, result)
                 try {
                     val jsonObject = JSONObject(result)
-                    val avatar: String? = jsonObject.getString("avatar_url").toString()
-                    val username: String? = jsonObject.getString("login").toString()
                     val name: String? = jsonObject.getString("name").toString()
+                    val username: String? = jsonObject.getString("login").toString()
+                    val avatar: String? = jsonObject.getString("avatar_url").toString()
                     val company: String? = jsonObject.getString("company").toString()
                     val location: String? = jsonObject.getString("location").toString()
                     val repository: Int = jsonObject.getInt("public_repos")
                     val followers: Int = jsonObject.getInt("followers")
                     val following: Int = jsonObject.getInt("following")
+                    val isFav = "0"
                     listUser.add(
                         User(
-                            avatar,
-                            username,
                             name,
+                            username,
+                            avatar,
                             company,
                             location,
                             repository,
                             followers,
-                            following
+                            following,
+                            isFav
                         )
                     )
                     showRVUser()
-                } catch (e: Exception) {
-                    Toast.makeText(this@MainActivity, e.message, Toast.LENGTH_SHORT)
-                        .show()
+                } catch (e: Throwable) {
                     e.printStackTrace()
                 }
             }
@@ -219,12 +226,12 @@ class MainActivity : AppCompatActivity() {
             ) {
                 progressBar.visibility = View.INVISIBLE
                 val errorMessage = when (statusCode) {
-                    401 -> "$statusCode : "+resources.getString(R.string.bad_request)
-                    403 -> "$statusCode : "+resources.getString(R.string.forbidden)
-                    404 -> "$statusCode : "+resources.getString(R.string.not_found)
+                    401 -> "$statusCode : " + resources.getString(R.string.bad_request)
+                    403 -> "$statusCode : " + resources.getString(R.string.forbidden)
+                    404 -> "$statusCode : " + resources.getString(R.string.not_found)
                     else -> "$statusCode : ${error.message + " DETAIL"}"
                 }
-                Toast.makeText(this@MainActivity, errorMessage, Toast.LENGTH_LONG)
+                Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_LONG)
                     .show()
             }
         })
@@ -235,7 +242,7 @@ class MainActivity : AppCompatActivity() {
         rv_user.layoutManager = LinearLayoutManager(this)
         rv_user.adapter = userAdapter
 
-        userAdapter.setOnItemClickListener(object : UserAdapter.ClickListener{
+        userAdapter.setOnItemClickListener(object : UserAdapter.ClickListener {
             override fun onItemClick(v: View, position: Int) {
                 Log.v("ITEM", "onItemClick $position")
 
@@ -250,15 +257,23 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
-        return super.onCreateOptionsMenu(menu)
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.action_change_language) {
-            val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
-            startActivity(mIntent)
+        return when (item.itemId){
+            R.id.menu_favorite_user ->{
+                val toFavorite = Intent(this, FavActivity::class.java)
+                startActivity(toFavorite)
+                true
+            }
+            R.id.menu_setting->{
+                val toSetting = Intent(this, SettingActivity::class.java)
+                startActivity(toSetting)
+                true
+            }
+            else -> true
         }
-        return super.onOptionsItemSelected(item)
     }
 
     override fun onResume() {
