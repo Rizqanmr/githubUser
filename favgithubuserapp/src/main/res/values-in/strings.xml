@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Github User</string>
+    <string name="name">Nama</string>
+    <string name="company">Perusahaan</string>
+    <string name="location">Lokasi</string>
+    <string name="value_repository">2000</string>
+    <string name="repositories">Repositori</string>
+    <string name="followers">Pengikut</string>
+    <string name="following">Mengikuti</string>
+    <string name="value">20</string>
+    <string name="change_language_settings">Ubah Pengaturan Bahasa</string>
+    <string name="username">Nama Pengguna</string>
+    <string name="bad_request">Permintaan Buruk</string>
+    <string name="forbidden">Dilarang</string>
+    <string name="not_found">Tidak ditemukan</string>
+    <string name="detail_user">Detail Pengguna</string>
+    <string name="user_profile_picture">Foto Profile Pengguna</string>
+    <string name="round_brackets">(%1$s)</string>
+    <string name="find_username">Cari Nama Pengguna</string>
+    <string name="username_not_found">Upss, Nama pengguna tidak ditemukan</string>
+    <string name="no_internet_conn_msg">Tidak ada koneksi internet!</string>
+    <string name="on_airplane_mode_msg">Mode pesawat aktif coy!</string>
+    <string name="settings">Pengaturan</string>
+    <string name="ok">OK</string>
+    <string name="toast_no_internet">Tidak ada koneksi internet. Mohon coba lagi</string>
+    <string name="daily_reminder">Atur Pengingat Harian</string>
+    <string name="added_favorite">Menambahkan ke daftar favorit</string>
+    <string name="deleted_favorite">Menghapus dari daftar favorit</string>
+    <string name="favorite">Favorit</string>
+    <string name="daily_message">Kuy cari pengguna favorit di Github</string>
+</resources>
