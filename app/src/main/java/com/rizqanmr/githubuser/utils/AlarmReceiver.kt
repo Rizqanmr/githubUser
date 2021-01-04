@@ -24,13 +24,11 @@ class AlarmReceiver : BroadcastReceiver() {
         private const val TIME_DAILY = "09:00" // set the alarm time here
     }
 
-    // when get receive data alarm/notif call this function to make and show the notification
     override fun onReceive(context: Context, intent: Intent) {
         val message = intent.getStringExtra(EXTRA_MESSAGE)
         showAlarmNotification(context, message)
     }
 
-    // this one will always called when the switch on setting is ON
     fun setDailyReminder(context: Context, type: String, message: String) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, AlarmReceiver::class.java)
@@ -53,10 +51,9 @@ class AlarmReceiver : BroadcastReceiver() {
             AlarmManager.INTERVAL_DAY,
             pendingIntent
         )
-        Toast.makeText(context, "Daily reminder set up", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, context.getString(R.string.setup_reminder), Toast.LENGTH_SHORT).show()
     }
 
-    // this one will always called when the switch on setting is OFF
     fun cancelAlarm(context: Context) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, AlarmReceiver::class.java)
@@ -64,10 +61,9 @@ class AlarmReceiver : BroadcastReceiver() {
         val pendingIntent = PendingIntent.getBroadcast(context, requestCode, intent, 0)
         pendingIntent.cancel()
         alarmManager.cancel(pendingIntent)
-        Toast.makeText(context, "Reminder cancelled", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, context.getString(R.string.cancel_reminder), Toast.LENGTH_SHORT).show()
     }
 
-    // here you can set much think for your notification will be like what
     private fun showAlarmNotification(
         context: Context,
         message: String?

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Github User</string>
+    <string name="app_name">Favorite Users</string>
     <string name="name">Nama</string>
     <string name="company">Perusahaan</string>
     <string name="location">Lokasi</string>
@@ -29,4 +29,6 @@
     <string name="deleted_favorite">Menghapus dari daftar favorit</string>
     <string name="favorite">Favorit</string>
     <string name="daily_message">Kuy cari pengguna favorit di Github</string>
+    <string name="setup_reminder">Pengingat harian diatur</string>
+    <string name="cancel_reminder">Pengingat dibatalkan</string>
 </resources>

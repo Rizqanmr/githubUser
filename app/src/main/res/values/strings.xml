@@ -28,4 +28,6 @@
     <string name="deleted_favorite">Deleted from favorite list</string>
     <string name="favorite">Favorite</string>
     <string name="daily_message">Let`s find favorite user on Github</string>
+    <string name="setup_reminder">Daily reminder set up</string>
+    <string name="cancel_reminder">Reminder cancelled</string>
 </resources>

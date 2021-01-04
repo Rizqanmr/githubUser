@@ -29,4 +29,6 @@
     <string name="deleted_favorite">Menghapus dari daftar favorit</string>
     <string name="favorite">Favorit</string>
     <string name="daily_message">Kuy cari pengguna favorit di Github</string>
+    <string name="setup_reminder">Pengingat harian diatur</string>
+    <string name="cancel_reminder">Pengingat dibatalkan</string>
 </resources>
