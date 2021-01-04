@@ -66,7 +66,7 @@ class FollowersFragment : Fragment() {
         try {
             pb_followers.visibility = View.VISIBLE
             val client = AsyncHttpClient()
-            client.addHeader("Authorization", "token 4eb088281be97614c40f9494a3a4ee87107d82f5")
+            client.addHeader("Authorization", "token 66399369ddd186db72098045d7e9a0bdee24db35")
             client.addHeader("User-Agent", "request")
             val url = "https://api.github.com/users/$username/followers"
             Log.d(TAG, url)
@@ -118,7 +118,7 @@ class FollowersFragment : Fragment() {
         try {
             pb_followers.visibility = View.VISIBLE
             val client = AsyncHttpClient()
-            client.addHeader("Authorization", "token 4eb088281be97614c40f9494a3a4ee87107d82f5")
+            client.addHeader("Authorization", "token 66399369ddd186db72098045d7e9a0bdee24db35")
             client.addHeader("User-Agent", "request")
             val url = "https://api.github.com/users/$id"
             client.get(url, object : AsyncHttpResponseHandler() {

@@ -32,6 +32,7 @@
         android:padding="16dp"
         android:text="@string/daily_reminder"
         android:textSize="17sp"
+        android:theme="@style/ThemeOverlay.MySwitch"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <View

@@ -17,5 +17,10 @@
         <item name="actionMenuTextColor">@color/colorPrimaryDark</item>
         <item name="theme">@style/ThemeOverlay.MaterialComponents.Dark</item>
     </style>
+    <style name="ThemeOverlay.MySwitch" parent="Theme.MaterialComponents.Light">
+        <item name="colorControlActivated">@color/colorPrimaryDark</item>
+        <item name="colorSwitchThumbNormal">#f1f1f1</item>
+        <item name="android:colorForeground">#42221f1f</item>
+    </style>
 
 </resources>
