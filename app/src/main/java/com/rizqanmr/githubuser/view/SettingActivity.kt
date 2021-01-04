@@ -3,9 +3,9 @@ package com.rizqanmr.githubuser.view
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
+import androidx.appcompat.app.AppCompatActivity
 import com.rizqanmr.githubuser.R
 import com.rizqanmr.githubuser.utils.AlarmReceiver
 import kotlinx.android.synthetic.main.activity_setting.*

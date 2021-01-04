@@ -13,7 +13,6 @@ import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import com.rizqanmr.favgithubuserapp.R
 import com.rizqanmr.favgithubuserapp.model.User
-import com.rizqanmr.favgithubuserapp.view.DetailActivity.Companion.EXTRA_NOTE
 import com.rizqanmr.favgithubuserapp.viewmodel.UserAdapter
 import cz.msebera.android.httpclient.Header
 import kotlinx.android.synthetic.main.fragment_following.*
